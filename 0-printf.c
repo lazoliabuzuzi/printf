@@ -1,5 +1,4 @@
-#include <stdarg.h>
-#include <stdio.h>
+#include "main.h"
 
 /**
  * _printf - produces output according to a format
@@ -10,9 +9,9 @@
 
 int _printf(const char *format, ...)
 {
-	va_list args;
+	va_list ap;
 
-	va_start(args, format);
+	va_start(ap, format);
 	int count = 0;
 
 	while (*format)
@@ -22,14 +21,14 @@ int _printf(const char *format, ...)
 
 		if (*format == 'c')
 		{
-			int c = va_arg(args, int);
+			int c = va_arg(ap, int);
 
 			putchar(c);
 			count++;
 		}
 		else if (*format == 's')
 		{
-			char *s = va_arg(args, char *);
+			char *s = va_arg(ap, char *);
 
 			while (*s)
 			{
@@ -48,6 +47,6 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
-	va_end(args);
+	va_end(ap);
 	return (count);
 }
