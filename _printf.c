@@ -4,7 +4,6 @@
  * @format: format
  * Return: Printed chars
  */
-void print_buffer(char buffer[], int *buff_ind);
 int _printf(const char *format, ...)
 {
 	int i, printed = 0, printed_chars = 0, int flags, width, precision, size, buff_ind = 0;
@@ -47,7 +46,7 @@ int _printf(const char *format, ...)
  * @buffer: Array of chars
  * @buff_ind: index at which to add the next char, represents the length.
  */
-void print_buffer(char buffer[]; int *buff_ind)
+void print_buffer(char buffer[], int *buff_ind)
 {
 	if(*buff_ind > 0)
 		write(1, &buffer[0], *buff_ind);
