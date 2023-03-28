@@ -113,7 +113,7 @@ int print_reverse(va_list ap, char buffer[],
 	UNUSED(width);
 	UNUSED(size);
 
-	str = va_arg(types, char *);
+	str = va_arg(ap, char *);
 
 	if (str == NULL)
 	{
