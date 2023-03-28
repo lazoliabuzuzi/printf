@@ -14,11 +14,11 @@
 int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	char extra_c = 0, padd = '';
-	int ind = BUFF_SIZE - 2, length = 2, padd_start= 1;
+	char extra_c = 0, padd = ' ';
+	int ind = BUFF_SIZE - 2, length = 2, padd_start = 1;
 	unsigned long num_addrs;
 	char map_to[] = "0123456789abcdef";
-	void *addrs = va_args(types, void *);
+	void *addrs = va_arg(types, void *);
 
 	UNUSED(width);
 	UNUSED(size);
@@ -38,7 +38,7 @@ int print_pointer(va_list types, char buffer[],
 		length++;
 	}
 
-	if ((flags & F_ZERO) && !(flags & F_MINUS)
+	if ((flags & F_ZERO) && !(flags & F_MINUS))
 			padd = '0';
 	if (flags & F_PLUS)
 		extra_c = '+', length++;
@@ -47,7 +47,7 @@ int print_pointer(va_list types, char buffer[],
 
 	ind++;
 
-	return (write_pointer(buffer, ind, length width, flags, padd, extra_c, padd_start));
+	return (write_pointer(buffer, ind, length, width, flags, padd, extra_c, padd_start));
 }
 
 /************************* PRINT NON PRINTABLE *************************/
@@ -102,7 +102,7 @@ int print_non_printable(va_list types, char buffer[],
  * Return: Numbers of chars printed
  */
 
-int print_reverse(va_list types, char buffer[],
+int print_reverse(va_list ap, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char *str;
@@ -113,7 +113,7 @@ int print_reverse(va_list types, char buffer[],
 	UNUSED(width);
 	UNUSED(size);
 
-	str = va_arg(types char *);
+	str = va_arg(types, char *);
 
 	if (str == NULL)
 	{
