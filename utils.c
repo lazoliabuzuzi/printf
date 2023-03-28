@@ -25,7 +25,7 @@ int append_hexa_code(char ascii_code, char buffer[], int i)
 {
 	char map_to[] = "0123456789ABCDEF";
 
-	if (ascii-code < 0)
+	if (ascii_code < 0)
 		ascii_code *= -1;
 
 	buffer[i++] = '\\';
@@ -82,5 +82,5 @@ long int convert_size_unsgnd(unsigned long int num, int size)
 	else if (size == S_SHORT)
 		return ((unsigned short)num);
 
-	return ((unsigned int(num);
+	return ((unsigned int)num);
 }
